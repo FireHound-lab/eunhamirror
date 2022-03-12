@@ -47,8 +47,7 @@ def cancel_mirror(update, context):
 def cancel_all(status):
     gid = ''
     while True:
-        dl = getAllDownload(status)
-        if dl:
+        if dl := getAllDownload(status):
             if dl.gid() != gid:
                 gid = dl.gid()
                 dl.download().cancel_download()
